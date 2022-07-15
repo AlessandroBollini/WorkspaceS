@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
-
+<script type="text/javascript"></script>
 <head>
-  <script type="text/javascript" src="index.js"></script>
   <title>CALCULATOR</title>
 </head>
 
 <body>
   <div class="container">
-    <form action="/calculator" method="POST">
+    <form onsubmit="event.preventDefault();sendResults()">
       <div>
         <label>First number</label>
         <input type="integer" class="form-control" placeholder="x" name="x">
@@ -19,11 +18,26 @@
       </div>
       <button type="submit">Submit</button>
     </form>
-    <div id="results">
-    </div>
-      <script type="text/javascript">
-        document.getElementById("results").innerHTML =""+a.name;
-      </script>
+    <div id="results"></div>
+    <script type="text/javascript">
+      function sendResults() {
+        let postObj = {
+          x: document.getElementsByName("x").item(0).value,
+          y: document.getElementsByName("y").item(0).value
+        };
+        let post = JSON.stringify(postObj);
+        console.log(post);
+        const url = "http://localhost:3000/results"
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+        xhr.send(post);
+        xhr.onload = function () {
+          document.getElementById("results").innerHTML = xhr.response;
+        }
+      }
+
+    </script>
 </body>
 
 </html>

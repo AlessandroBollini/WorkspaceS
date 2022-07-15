@@ -1,4 +1,4 @@
-const calculator=require('./calculator');
+const calculator=require('../calculator');
 
 test('Test for add method',()=>{
     expect(calculator.add(2,3)).toBe(5);
