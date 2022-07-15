@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CALCULATOR</title>
+    </head>
+    <body>
+        <div class="container">
+            <form action="/calculator" method="POST">
+              <div>
+                <label>First number</label>
+                <input type="integer" class="form-control" placeholder="x" name="x">
+              </div>
+              <div>
+                <label>Second number</label>
+                <input type="integer" class="form-control" placeholder="y" name="y">
+              </div>
+              <button type="submit">Submit</button>
+            </form>
+            <br>
+            <h1>Results:</h1>
+            <script>
+                const calculator=require('./calculator');
+                let results=calculator.results;
+                console.log(results);
+                results.forEach(result => {
+                    document.print(result);
+                });
+            </script>
+    </body>
+</html>
