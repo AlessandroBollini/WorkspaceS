@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Users\bollini\Documents\WorkspaceS\calculator.test.js">
+    <testCase name="Test for add method" duration="3"/>
+    <testCase name="Test for sub method" duration="0"/>
+  </file>
+</testExecutions>
